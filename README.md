@@ -261,3 +261,19 @@ opencode-9router-docker/
 ## Catatan
 
 Contoh konfigurasi di repository ini harus dianggap sebagai template. Sesuaikan model combo, provider, credential, dan batas akses dengan kebutuhan masing-masing environment.
+
+## Gambaran Singkat
+## Diagram Arsitektur
+
+```mermaid
+flowchart TD
+    A[Developer / User] --> B[OpenCode Container]
+    B --> C[ai-network]
+    C --> D[9Router]
+
+    D --> E[coding-fast]
+    D --> F[coding-deep]
+
+    E --> G[Cloud AI Providers]
+    F --> G
+```
