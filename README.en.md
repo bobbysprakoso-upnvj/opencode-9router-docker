@@ -263,3 +263,18 @@ opencode-9router-docker/
 ## Note
 
 Configuration files in this repository are templates. Adapt model combos, providers, credentials, and access boundaries to your own environment.
+
+## Architecture Diagram
+
+```mermaid
+flowchart TD
+    A[Developer / User] --> B[OpenCode Container]
+    B --> C[ai-network]
+    C --> D[9Router]
+
+    D --> E[coding-fast]
+    D --> F[coding-deep]
+
+    E --> G[Cloud AI Providers]
+    F --> G
+```
