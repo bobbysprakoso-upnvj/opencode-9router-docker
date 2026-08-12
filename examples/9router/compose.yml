@@ -1,0 +1,30 @@
+name: ai-gateway
+
+services:
+  9router:
+    image: decolua/9router:latest
+    container_name: 9router
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:20128:20128"
+
+    env_file:
+      - .env
+
+    environment:
+      DATA_DIR: /app/data
+      PORT: "20128"
+      HOSTNAME: "0.0.0.0"
+      NODE_ENV: production
+      REQUIRE_API_KEY: "true"
+
+    volumes:
+      - ./data:/app/data
+
+    networks:
+      - ai-network
+
+networks:
+  ai-network:
+    external: true

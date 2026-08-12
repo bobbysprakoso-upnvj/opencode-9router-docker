@@ -1,0 +1,38 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Persistent data
+data/
+**/data/
+
+# SQLite
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+
+# Backups
+backup/
+backups/
+*.bak
+
+# Logs
+*.log
+logs/
+
+# Runtime / dependencies
+node_modules/
+.next/
+dist/
+build/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Temporary files
+*.tmp
+*.swp
+*~

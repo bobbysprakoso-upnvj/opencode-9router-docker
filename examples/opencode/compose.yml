@@ -1,0 +1,22 @@
+services:
+  opencode:
+    image: ghcr.io/anomalyco/opencode:latest
+
+    working_dir: /workspace
+
+    stdin_open: true
+    tty: true
+
+    env_file:
+      - .env
+
+    volumes:
+      - ../:/workspace
+      - ./opencode.json:/root/.config/opencode/opencode.json:ro
+
+    networks:
+      - ai-network
+
+networks:
+  ai-network:
+    external: true

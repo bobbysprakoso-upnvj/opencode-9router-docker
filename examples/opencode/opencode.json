@@ -1,0 +1,26 @@
+{
+  "model": "9router/coding-fast",
+  "small_model": "9router/coding-fast",
+
+  "provider": {
+    "9router": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "9Router",
+
+      "options": {
+        "baseURL": "http://9router:20128/v1",
+        "apiKey": "{env:ROUTER9_API_KEY}"
+      },
+
+      "models": {
+        "coding-fast": {
+          "name": "Coding Fast"
+        },
+
+        "coding-deep": {
+          "name": "Coding Deep"
+        }
+      }
+    }
+  }
+}
