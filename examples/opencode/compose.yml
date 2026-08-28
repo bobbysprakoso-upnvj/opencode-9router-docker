@@ -1,8 +1,11 @@
 services:
-  opencode:
+  opencode-dev:
     image: ghcr.io/anomalyco/opencode:latest
+    container_name: opencode-dev
 
-    working_dir: /workspace
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+
+    working_dir: /workspace/docker
 
     stdin_open: true
     tty: true
@@ -10,12 +13,40 @@ services:
     env_file:
       - .env
 
+    environment:
+      HOME: /home/opencode
+      XDG_CONFIG_HOME: /home/opencode/.config
+      XDG_DATA_HOME: /home/opencode/.local/share
+      XDG_CACHE_HOME: /home/opencode/.cache
+      XDG_STATE_HOME: /home/opencode/.local/state
+
+    # IMPORTANT:
+    # override image ENTRYPOINT "opencode"
+    entrypoint:
+      - /bin/sh
+      - -c
+
+    command:
+      - sleep infinity
+
     volumes:
-      - ../:/workspace
-      - ./opencode.json:/root/.config/opencode/opencode.json:ro
+      - /home/bsp/docker:/workspace/docker
+
+      - ./opencode.json:/home/opencode/.config/opencode/opencode.json:ro
+
+      - opencode-data:/home/opencode/.local/share/opencode
+      - opencode-cache:/home/opencode/.cache/opencode
+      - opencode-state:/home/opencode/.local/state
 
     networks:
       - ai-network
+
+    restart: "no"
+
+volumes:
+  opencode-data:
+  opencode-cache:
+  opencode-state:
 
 networks:
   ai-network:
