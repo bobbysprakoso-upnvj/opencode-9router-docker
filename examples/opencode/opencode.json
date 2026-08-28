@@ -1,6 +1,6 @@
 {
-  "model": "9router/ag/gemini-3-flash-agent",
-  "small_model": "9router/ag/gemini-3.6-flash-low",
+  "model": "9router/coding-agent",
+  "small_model": "9router/utility-fast",
 
   "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
 
@@ -15,44 +15,44 @@
       },
 
       "models": {
-        "coding-fast": {
-          "name": "9Router Coding Fast"
+        "utility-fast": {
+          "name": "Utility Fast"
+        },
+
+        "coding-agent": {
+          "name": "Coding Agent"
         },
 
         "coding-deep": {
-          "name": "9Router Coding Deep"
+          "name": "Coding Deep"
         },
 
-        "ag/gemini-3-flash-agent": {
-          "name": "Gemini 3 Flash Agent",
-          "limit": {
-            "context": 1048576,
-            "output": 65536
-          }
+        "coding-review": {
+          "name": "Coding Review"
+        },
+
+        "research-deep": {
+          "name": "Research Deep"
+        },
+
+        "research-write": {
+          "name": "Research Write"
+        },
+
+        "research-engineer": {
+          "name": "Research Engineer"
+        },
+
+        "research-review": {
+          "name": "Research Review"
+        },
+
+        "private-local": {
+          "name": "Private Local"
         },
 
         "ag/gemini-3.6-flash-high": {
-          "name": "Gemini 3.6 Flash High",
-          "limit": {
-            "context": 1048576,
-            "output": 65536
-          }
-        },
-
-        "ag/gemini-3.6-flash-medium": {
-          "name": "Gemini 3.6 Flash Medium",
-          "limit": {
-            "context": 1048576,
-            "output": 65536
-          }
-        },
-
-        "ag/gemini-3.6-flash-low": {
-          "name": "Gemini 3.6 Flash Low",
-          "limit": {
-            "context": 1048576,
-            "output": 65536
-          }
+          "name": "Emergency Direct Gemini"
         }
       }
     }
