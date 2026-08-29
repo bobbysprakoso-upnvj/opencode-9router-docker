@@ -35,6 +35,7 @@ services:
 
     volumes:
       - /home/bsp/docker:/workspace/docker
+      - /home/bsp/Documents/Second-Brain:/knowledge/Second-Brain:ro
 
       - ./opencode.json:/home/opencode/.config/opencode/opencode.json:ro
 

@@ -1,56 +1,54 @@
 {
   "model": "9router/coding-agent",
   "small_model": "9router/utility-fast",
-
   "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
-
+  "permission": {
+    "external_directory": {
+      "/knowledge/Second-Brain/**": "allow"
+    },
+    "read": {
+      "/knowledge/Second-Brain/**": "allow"
+    },
+    "edit": {
+      "/knowledge/Second-Brain/**": "deny"
+    }
+  },
   "provider": {
     "9router": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "9Router",
-
       "options": {
         "baseURL": "http://9router:20128/v1",
         "apiKey": "{env:ROUTER9_API_KEY}"
       },
-
       "models": {
         "utility-fast": {
           "name": "Utility Fast"
         },
-
         "coding-agent": {
           "name": "Coding Agent"
         },
-
         "coding-deep": {
           "name": "Coding Deep"
         },
-
         "coding-review": {
           "name": "Coding Review"
         },
-
         "research-deep": {
           "name": "Research Deep"
         },
-
         "research-write": {
           "name": "Research Write"
         },
-
         "research-engineer": {
           "name": "Research Engineer"
         },
-
         "research-review": {
           "name": "Research Review"
         },
-
         "private-local": {
           "name": "Private Local"
         },
-
         "ag/gemini-3.6-flash-high": {
           "name": "Emergency Direct Gemini"
         }
