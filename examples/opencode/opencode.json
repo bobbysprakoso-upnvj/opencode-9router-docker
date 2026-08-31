@@ -1,13 +1,18 @@
 {
   "model": "9router/coding-agent",
   "small_model": "9router/utility-fast",
-  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
+  "plugin": [],
+  "skills": {
+    "paths": ["/home/opencode/.config/opencode/superpowers/skills"]
+  },
   "permission": {
     "external_directory": {
-      "/knowledge/Second-Brain/**": "allow"
+      "/knowledge/Second-Brain/**": "allow",
+      "/home/opencode/.config/opencode/gsd-core/**": "allow"
     },
     "read": {
-      "/knowledge/Second-Brain/**": "allow"
+      "/knowledge/Second-Brain/**": "allow",
+      "/home/opencode/.config/opencode/gsd-core/**": "allow"
     },
     "edit": {
       "/knowledge/Second-Brain/**": "deny"

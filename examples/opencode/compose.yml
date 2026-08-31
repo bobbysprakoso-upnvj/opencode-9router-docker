@@ -39,9 +39,24 @@ services:
 
       - ./opencode.json:/home/opencode/.config/opencode/opencode.json:ro
 
+      # GSD Hybrid v1 - selected skill surface
+      - /home/bsp/docker/opencode-skills/community/gsd-core/hybrid-v1/skills:/home/opencode/.config/opencode/skills:ro
+
+      # GSD pinned runtime
+      - /home/bsp/docker/opencode-skills/community/gsd-core/1.12.0/gsd-core:/home/opencode/.config/opencode/gsd-core:ro
+      - /home/bsp/docker/opencode-skills/community/gsd-core/1.12.0/hooks:/home/opencode/.config/opencode/hooks:ro
+      - /home/bsp/docker/opencode-skills/community/gsd-core/1.12.0/plugins:/home/opencode/.config/opencode/plugins:ro
+      - /home/bsp/docker/opencode-skills/community/gsd-core/1.12.0/scripts:/home/opencode/.config/opencode/scripts:ro
+
+      # GSD policy defaults - model routing remains owned by 9Router
+      - /home/bsp/docker/opencode-skills/community/gsd-core/config/defaults.json:/home/opencode/.gsd/defaults.json:ro
+
       - opencode-data:/home/opencode/.local/share/opencode
       - opencode-cache:/home/opencode/.cache/opencode
       - opencode-state:/home/opencode/.local/state
+
+      # Superpowers pinned v6.3.0
+      - /home/bsp/docker/opencode-skills/community/superpowers/6.3.0:/home/opencode/.config/opencode/superpowers:ro
 
     networks:
       - ai-network
